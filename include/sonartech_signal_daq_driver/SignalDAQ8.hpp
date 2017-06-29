@@ -11,6 +11,8 @@
 
 #include <ros/ros.h>
 
+#include <sonartech_signal_daq_driver/SamplesArray.h>
+
 class SignalDAQ8 {
 public:
   SignalDAQ8(const ros::NodeHandle &nh);
@@ -21,6 +23,8 @@ public:
   int initializeSockets();
 
   int sendCommand(short data);
+
+  sonartech_signal_daq_driver::SamplesArray createMessageFromData(char* data, int data_len);
 
   void die(std::string message);
 
@@ -36,6 +40,9 @@ public:
 
   static constexpr int cmd_port_ = 8004;
   static constexpr int data_port_ = 9004;
+
+  static constexpr int DATA_BUF_LEN = 8030;
+  static constexpr int NUM_SAMPLES = 500;
 };
 
 #endif

@@ -12,6 +12,6 @@ int main(int argc, char *argv[]) {
 
   signaldaq.initializeSockets();
 
-  signaldaq.sendCommand(1);
-  signaldaq.sendCommand(2);
+  signaldaq.testBoard();
+  //signaldaq.sendCommand(2);
 }
